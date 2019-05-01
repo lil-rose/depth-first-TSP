@@ -1,5 +1,5 @@
 # from depthfirst import findDepthFirst
-import depthfirst
+from DepthFirsSearch import DepthFirsSearch
 import numpy as np
 
 n = 4
@@ -22,22 +22,24 @@ ejemploGrafo[3,0] = 12
 ejemploGrafo[3,1] = 13
 ejemploGrafo[3,2] = 6
 
-print('ejemploGrafo')
-print(ejemploGrafo)
+# print('ejemploGrafo')
+# print(ejemploGrafo)
 
-solutionsArr, costsArray = depthfirst.findDepthFirst(ejemploGrafo, n)
+objetoEjemplo = DepthFirsSearch(ejemploGrafo, n)
+print('totalPaths', objetoEjemplo.totalPaths)
+# print('objetoEjemplo:')
+# print(objetoEjemplo.graph)
+# print(objetoEjemplo.n)
+# print(objetoEjemplo.solutionsArr)
+# print(objetoEjemplo.costsArray)
 
-print('solutionsArr: ')
-print(solutionsArr)
-print('----------------------------------')
-print('costsArray: ')
-print(costsArray)
+# solutionsArr, costsArray = objetoEjemplo.findDepthFirst()
 
-# board = []    
-# for i in range(6): # create a list with nested lists
+objetoEjemplo.findDepthFirst()
+# solutionsArr, costsArray = depthfirst.findDepthFirst(ejemploGrafo, n)
 
-#     board.append([0,0,0,0,0,0])
-#     # for n in range(6):
-#     #     board[i].append(0) # fills nested lists with data
-
-# print(board)
+# print('solutionsArr: ')
+# print(objetoEjemplo.solutionsArr)
+# print('----------------------------------')
+# print('costsArray: ')
+# print(costsArray)
