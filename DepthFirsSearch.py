@@ -1,5 +1,5 @@
 import numpy as np
-import copy
+import itertools
 class DepthFirsSearch:
     def __init__(self, graph, n):
         """
@@ -10,7 +10,8 @@ class DepthFirsSearch:
         self.costsArray = []
         self.graph = graph
         self.n = n
-        self.bestSolution = -1
+        self.bestSolution = 0
+        self.lowerCost = -1
 
     def findDepthFirst(self, firstNode):
         self.depthFirst(firstNode, [0], 0)
@@ -46,15 +47,36 @@ class DepthFirsSearch:
                     currentPath.pop()
                     cost -= self.graph[currentNode, i]
 
-    # def depthFirst(graph, n):
-    #     currentNode = 0
-    #     cost = 0
-    #     currentPath = 0
-    #     solutionsArr = []
-    #     costsArray = []
-    #     condition = True
+    def DepthFirsIterative(self, root):
+        self.lowerCost = 100*self.n
 
-    #     while condition:
+        arrayOfNodes = []
+        for i in range(self.n):
+            if i != root:
+                arrayOfNodes.append(i)
+        permutArrays = itertools.permutations(arrayOfNodes)
+        k = 0
+        for permut in permutArrays:
+            print('iteracion: ', k)
+            permut = list(permut)
+            permut.insert(0, root)
+            self.solutionsArr.append(permut)
+            cost = 0
+            for i in range(self.n-1):
+                row = permut[i]
+                col = permut[i+1]
+                cost += self.graph[row, col]
+            
+            self.costsArray.append(cost)
+            if(self.lowerCost > cost):
+                self.lowerCost = cost
+                self.bestSolution = k
+            k += 1
+
+
+        
+
+    
 
 
 
