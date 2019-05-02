@@ -1,64 +1,63 @@
 # from depthfirst import findDepthFirst
-from DepthFirsSearch import DepthFirsSearch
+from DepthFirsSearch import DepthFirstSearch
 import GraphUtils
+import matplotlib.pyplot as plt
 import numpy as np
 import time
 
-DepthFirsSearch
+def generateStatistics(n):
+        arrayTimes = []
+        for i in range(2,n+1):
+                print('i:', i)
+                randoms = GraphUtils.arrayRandoms(n)
+                graph = GraphUtils.createGraph(randoms, i)
+                DF = DepthFirstSearch(graph, i)
 
-    # i.push(0)
-    # print(i)
+                start = time.time()
+                DF.DepthFirsIterative(0)
+                end = time.time()
 
-# n = 4
-n = 10
-ejemplo = GraphUtils.arrayRandoms(n)
-# print('Ejemplo randoms:')
-# print(ejemplo)
+                arrayTimes.append(end-start)
+        return arrayTimes
 
-ejemploGrafo = GraphUtils.createGraph(ejemplo, n)
-# print('Ejemplo grafo:')
-# print(ejemploGrafo)
+def plotArrayTimes(arrayTimes, n):
+        fig, ax = plt.subplots(figsize=(10,10))
+        # agregando ejes a la figura:
+        arrayN = np.arange(2,n+1)
+        # ax = fig.add_axes([0.0, 0.0, 1.0, 1.0]) #izquierda, abajo, ancho, altura (rango de 0 a 1)
+        ax.plot(arrayN, arrayTimes, 'b')
+        ax.set_xlabel('n') # Notice the use of set_ to begin methods
+        ax.set_ylabel('tiempo (segundos)')
+        ax.set_title('Tiempo de ejecución')
+        # plt.ylim(0,arrayTimes[n-3])
+        plt.xlim(0,n + 1)
+        nameFile = 'estadistica' + str(n) + '.jpg'
+        fig.savefig(nameFile)
+
+n = 11
+arrayTimes = generateStatistics(n)
+plotArrayTimes(arrayTimes, n)
 
 
-objetoEjemplo = DepthFirsSearch(ejemploGrafo, n)
+# n = 11
+# ejemplo = GraphUtils.arrayRandoms(n)
 
+# ejemploGrafo = GraphUtils.createGraph(ejemplo, n)
 
-start = time.time()
+# objetoEjemplo = DepthFirstSearch(ejemploGrafo, n)
 
-objetoEjemplo.DepthFirsIterative(0)
+# start = time.time()
 
-end = time.time()
-
-
-print('TIEMPO: ', end - start)
-# print('graph: ')
-# print(objetoEjemplo.graph)
-# print('- - - - - - - - - - - - - - - - ')
-
-# print('solutionsArr:')
-# for s in objetoEjemplo.solutionsArr:
-#     print(s)
-# print('- - - - - - - - - - - - - - - - ')
-# print('costsArray', objetoEjemplo.costsArray)
-# print('bestSolution', objetoEjemplo.bestSolution)
-# print('lowerCost', objetoEjemplo.lowerCost)
-
+# # objetoEjemplo.DepthFirsIterative(0)
 # objetoEjemplo.findDepthFirst(0)
 
-# """
-#     self.solutionsArr = []  
-#     self.costsArray = []
-#     self.graph = graph
-#     self.n = n
-#     self.bestSolution = -1
-# """
+# end = time.time()
 
-# print('Soluciones encontradas: ')
-# print(objetoEjemplo.solutionsArr)
+# print('TIEMPO: ', end - start)
 
-# print('Costos soluciones: ')
-# print(objetoEjemplo.costsArray)
+# n = 1
+# while n > 0:
 
-# print('Mejor solución: ')
-# print(objetoEjemplo.bestSolution)
+#     n = input('Ingrese un valor de n (tamaño del grafo):')
+    
 

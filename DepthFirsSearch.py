@@ -1,6 +1,6 @@
 import numpy as np
 import itertools
-class DepthFirsSearch:
+class DepthFirstSearch:
     def __init__(self, graph, n):
         """
             graph: Matriz con los valores de los nodos y los costos entre nodos
@@ -14,15 +14,17 @@ class DepthFirsSearch:
         self.lowerCost = -1
 
     def findDepthFirst(self, firstNode):
-        self.depthFirst(firstNode, [0], 0)
+        self.depthFirst(firstNode, [0], 0, 0)
 
 
-    def depthFirst(self, currentNode, currentPath, cost):
+    def depthFirst(self, currentNode, currentPath, cost, k):
         """
             currentNode: Nodo actual que se está evaluando.
             currentPath: Array que representa el camino recorrido hasta el momento
             cost: Costo acumulado hasta el momento por el camino recorrido
         """
+        print('k:', k)
+        k  += 1
         if len(currentPath) == self.n:
             solution = []
             for cp in currentPath:
@@ -42,7 +44,7 @@ class DepthFirsSearch:
                     cost += self.graph[currentNode, i]
 
                     #depthFirst(graph, n, i, currentPath, cost)
-                    self.depthFirst(i, currentPath, cost)
+                    self.depthFirst(i, currentPath, cost, k)
 
                     currentPath.pop()
                     cost -= self.graph[currentNode, i]
