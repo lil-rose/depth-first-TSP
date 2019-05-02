@@ -59,7 +59,7 @@ class DepthFirstSearch:
         permutArrays = itertools.permutations(arrayOfNodes)
         k = 0
         for permut in permutArrays:
-            print('iteracion: ', k)
+            # print('iteracion: ', k)
             permut = list(permut)
             permut.insert(0, root)
             self.solutionsArr.append(permut)
