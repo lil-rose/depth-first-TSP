@@ -13,7 +13,7 @@ Texto del segundo apartado -->
 
 # Travelling Salesman Problem (TSP)
 
-The problem of the traveling seller is to travel all the cities of a country, trying to find the lowest cost road, with the caveat that each city must be visited only once. The objective is to find the better route for the traveling seller.
+The problem of the traveling salesman is to travel all the cities of a country, trying to find the lowest cost route, with the caveat that each city must be visited only once. The objective is to find the better route for the traveling salesman.
 
 I resolved this problem using **Depth First Algorythm**. Another algorythms that can be used are:
 
@@ -73,6 +73,6 @@ The costs of traveling between cities (graph nodes) are represented by a matrix 
 
 **Goals**:
 
-The goal is to find, of all the possible paths that walk through all cities, that path that has the lowest cost.
+The goal is to find, of all the possible paths that walk through all cities, the path that has the lowest cost.
 
-As an additional goal, it is desired to know the program execution time for different values of “n” (2, 4, 6, 8,…, until the program runs out of memory to solve the problem).
+As an additional goal, it is desired to know the program execution time for different values of “n” (2, 4, 6, 8,…, until the program runs out of memory to solve the problem.
