@@ -1,2 +1,0 @@
-def prueba():
-    print('c:::::::::::')
