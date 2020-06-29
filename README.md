@@ -1,6 +1,11 @@
-# depth-first-TSP
+# Depth-First TSP
 
 Implementing depth-first algorythm for Travelling Salesman Problem.
+
+# Index
+1. [Travelling Salesman Problem](#TSP)
+2. [Problem modeling](#modeling)
+
 <!-- 
 ## Índex
 
@@ -11,7 +16,7 @@ Texto del primer apartado
 ## Segundo apartado<a name="id2"></a>
 Texto del segundo apartado -->
 
-# Travelling Salesman Problem (TSP)
+# Travelling Salesman Problem (TSP)<a name=TSP></a>
 
 The problem of the traveling salesman is to travel all the cities of a country, trying to find the lowest cost route, with the caveat that each city must be visited only once. The objective is to find the better route for the traveling salesman.
 
@@ -21,7 +26,7 @@ I resolved this problem using **Depth First Algorythm**. Another algorythms that
 - Hill Climbing
 - Best First
 
-# Problem modeling
+# Problem modeling<a name=modeling></a>
 
 Cities will be named: 0, 1, 2, 3, etc.
 
